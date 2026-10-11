@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ReciclaRuta · Pasos del prototipo</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background-color:#f0f3ec;background-image:radial-gradient(#b9c3b6 1px,transparent 1px);background-size:26px 26px;color:#16301f;font-family:"DejaVu Sans",Verdana,system-ui,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:24px 20px 40px}
+h1{margin:0;font-size:clamp(24px,4vw,40px);font-weight:800}
+.sub{color:#4b5d51;font-size:clamp(13px,1.8vw,18px);margin:6px 0 18px}
+.stage{display:grid;grid-template-columns:1fr 60px 1fr 60px 1fr;align-items:center}
+.col{display:flex;flex-direction:column;align-items:center}
+.badge{width:56px;height:56px;border-radius:50%;background:#e09a2f;color:#1b1b1b;font-size:34px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:-6px;position:relative;z-index:2}
+.phone{width:100%;max-width:330px;background:#1b1b1b;border-radius:44px;padding:14px 12px 30px;position:relative}
+.notch{width:100px;height:14px;background:#3a3a3a;border-radius:9px;margin:0 auto 10px}
+.screen{background:#f8faf6;border-radius:26px;height:620px;overflow-y:auto;padding:14px 14px 18px;scrollbar-width:none}
+.screen::-webkit-scrollbar{display:none}
+.app-t{font-size:23px;font-weight:800;margin:0}.app-s{font-size:12px;color:#5b6b60;margin:2px 0 10px}
+.tabs{display:flex;gap:6px;margin-bottom:10px}
+.tabs button{flex:1;padding:8px 2px;font:700 11.5px inherit;font-family:inherit;border:1px solid #d6ddd3;background:#fff;color:#1b2a21;border-radius:8px;cursor:pointer}
+.tabs button.on{background:#2f6b3f;color:#fff;border-color:#2f6b3f}
+.card{background:#fff;border:1px solid #e0e6dd;border-radius:12px;padding:12px;margin-bottom:10px}
+.stats{display:flex;justify-content:space-between;font-size:12.5px}
+.item{text-align:center;padding:10px 0 6px}.em{font-size:62px;line-height:1.1}.item h2{margin:6px 0 0;font-size:19px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.grid button{padding:12px 4px;border:2px solid transparent;border-radius:9px;font:700 13px inherit;font-family:inherit;color:#fff;cursor:pointer}
+.grid .n{grid-column:1/-1}
+.fb{min-height:22px;margin-top:10px;font-weight:700;font-size:15px}.ok{color:#2f6b3f}.bad{color:#c0392b}
+.mut{color:#5b6b60;font-size:12px}
+select{width:100%;margin:6px 0 12px;padding:9px;border:1px solid #cfd7cc;border-radius:8px;font:13px inherit;font-family:inherit;background:#fff;color:#1b2a21}
+.big{font-size:32px;font-weight:800;color:#2f6b3f;margin:2px 0 6px}
+.days{display:flex;gap:5px;flex-wrap:wrap;margin-top:12px}
+.days span{padding:6px 8px;border-radius:99px;background:#dcebdd;font-size:11px;font-weight:700;color:#2f6b3f}
+.days span.on{background:#2f6b3f;color:#fff}
+ul{margin:8px 0 0;padding-left:18px;color:#4b5d51;font-size:12.5px;line-height:2}
+.row{display:flex;justify-content:space-between;align-items:center;margin:7px 0;font-size:13px}
+.row input{width:72px;text-align:center;padding:7px;border:1px solid #cfd7cc;border-radius:8px;font:13px inherit;font-family:inherit;background:#fff;color:#1b2a21}
+.pts{font-size:44px;font-weight:800;color:#2f6b3f;line-height:1.1}
+.bar{height:9px;background:#dcebdd;border-radius:9px;overflow:hidden;margin:6px 0}
+.bar i{display:block;height:100%;background:#2f6b3f}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.chips span{background:#dcebdd;color:#2f6b3f;font-weight:700;font-size:11px;padding:6px 10px;border-radius:99px}
+.cj{display:flex;justify-content:space-between;font-size:11.5px;margin:5px 0;color:#4b5d51}.cj b{color:#2f6b3f}
+.cap{font-size:clamp(15px,1.8vw,22px);font-weight:800;margin-top:14px;text-align:center}
+.arrow{width:0;height:0;border-top:30px solid transparent;border-bottom:30px solid transparent;border-left:40px solid #e09a2f;justify-self:center}
+@media(max-width:1000px){
+ .stage{grid-template-columns:1fr;gap:6px}
+ .arrow{border-left:30px solid transparent;border-right:30px solid transparent;border-top:40px solid #e09a2f;border-bottom:0;margin:14px 0}
+}
+</style></head><body>
+<div class="wrap">
+<h1>ReciclaRuta · Pasos del prototipo</h1>
+<div class="sub">Aplicación web interactiva · Asociación Verde Junín · ODS 12, meta 12.5</div>
+<div class="stage">
+ <div class="col"><div class="badge">1</div><div class="phone"><div class="notch"></div><div class="screen" id="p0"></div></div><div class="cap">Paso 1: Aprende jugando</div></div>
+ <div class="arrow"></div>
+ <div class="col"><div class="badge">2</div><div class="phone"><div class="notch"></div><div class="screen" id="p1"></div></div><div class="cap">Paso 2: Consulta tu recojo</div></div>
+ <div class="arrow"></div>
+ <div class="col"><div class="badge">3</div><div class="phone"><div class="notch"></div><div class="screen" id="p2"></div></div><div class="cap">Paso 3: Acumula puntos y canjea</div></div>
+</div>
+</div>
+<script>
+const BINS={"Plástico":["#fff","#222","#9a9a9a"],"Papel y cartón":["#4a6fd0","#fff"],"Vidrio":["#5aa35f","#10240f"],"Metales":["#e8c53a","#2a2400"],"Orgánico":["#85623f","#fff"],"Peligrosos":["#c4493e","#fff"],"No aprovechable":["#444","#fff"]};
+const ITEMS=[["💧","Botella de agua","Plástico"],["📦","Caja de cereal","Papel y cartón"],["🫙","Frasco de mermelada","Vidrio"],["🥫","Lata de atún","Metales"],["🍌","Cáscara de plátano","Orgánico"],["🔋","Pilas usadas","Peligrosos"],["🧻","Servilleta sucia","No aprovechable"],["📰","Periódico","Papel y cartón"],["🍾","Botella de vidrio","Vidrio"],["🥤","Vaso descartable","Plástico"],["🥚","Cáscara de huevo","Orgánico"],["💡","Foco fluorescente","Peligrosos"]];
+const ZONAS={"Zona Centro":{d:[1,4],h:"7:00 am",s:"6:30 am"},"Zona Norte":{d:[2,5],h:"6:30 am",s:"6:00 am"},"Zona Sur":{d:[3,6],h:"7:30 am",s:"7:00 am"}};
+const DN=["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"],DL=["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+const KG={"Plástico":4,"Papel y cartón":6,"Vidrio":5,"Metales":2};
+let S={scr:[0,1,2],acc:3,racha:2,quiz:15,cur:0,fb:"¡Correcto! +5 pts",fbOk:true,gain:"+5 pts",lock:false,zona:"Zona Centro"};
+S.quiz=0;S.acc=0;S.racha=0;S.fb="";S.gain="";
+const TABS=["¿Dónde va?","Mi recojo","Mis puntos"];
+function totals(){const kg=Object.values(KG).reduce((a,b)=>a+b,0),p=20+kg*7+S.quiz;return{kg,p}}
+function viewA(){const it=ITEMS[S.cur];
+ return `<div class="card"><div class="stats"><span>Aciertos: ${S.acc} · Racha: ${S.racha}</span><span class="mut">${S.gain}</span></div>
+ <div class="item"><div class="em">${it[0]}</div><h2>${it[1]}</h2></div>
+ <div class="grid">${Object.keys(BINS).map(k=>{const c=BINS[k];return `<button class="${k==="No aprovechable"?"n":""}" data-bin="${k}" style="background:${c[0]};color:${c[1]};${c[2]?"border-color:"+c[2]:""}">${k}</button>`}).join("")}</div>
+ <div class="fb ${S.fbOk?"ok":"bad"}">${S.fb}</div></div>`}
+function nextPick(){const z=ZONAS[S.zona],now=new Date();let n;
+ for(let i=1;i<=7;i++){n=new Date(now);n.setDate(now.getDate()+i);if(z.d.includes(n.getDay()))break}return n}
+function viewB(){const z=ZONAS[S.zona],n=nextPick();
+ return `<div class="card"><div class="mut">Elige tu zona</div>
+ <select data-zona>${Object.keys(ZONAS).map(k=>`<option ${k===S.zona?"selected":""}>${k}</option>`).join("")}</select>
+ <div class="mut">Próximo recojo</div><div class="big">${DL[n.getDay()]} ${n.getDate()}/${n.getMonth()+1}</div>
+ <div class="mut">Hora: ${z.h} · Días fijos: ${z.d.map(d=>DL[d]).join(" y ")}</div>
+ <div class="days">${DN.map((d,i)=>`<span class="${z.d.includes(i)?"on":""}">${d}</span>`).join("")}</div></div>
+ <div class="card"><b>Cómo prepararlo</b><ul><li>Limpia y seca los envases</li><li>Aplasta botellas y cajas</li><li>Saca tu bolsa a las ${z.s}</li><li>Peligrosos: entrégalos aparte</li></ul></div>`}
+function viewC(){const{kg,p}=totals(),goals=[100,250,500],names=["5% descuento en bodega","Útiles escolares","Vale S/ 20 librería"],gi=goals.findIndex(g=>p<g);
+ const meta=gi<0?"¡Alcanzaste todos los canjes!":`Te faltan ${goals[gi]-p} pts para: ${names[gi]}`;
+ const w=gi<0?100:Math.min(100,p/goals[gi]*100);
+ return `<div class="card"><b style="font-size:14px">Kg entregados este mes</b>${Object.keys(KG).map(k=>`<div class="row"><span>${k}</span><input type="number" min="0" inputmode="numeric" data-kg="${k}" value="${KG[k]}"></div>`).join("")}</div>
+ <div class="card"><div class="mut">Tus puntos</div><div class="pts">${p}</div><div class="bar"><i style="width:${w}%"></i></div><div class="mut">${meta}</div>
+ <div class="chips"><span>${kg} kg desviados</span><span>≈ ${(kg*1.23).toFixed(1)} kg CO2 evitados</span></div></div>
+ <div class="card"><b style="font-size:13px">Canjes en comercios aliados</b><div class="cj"><span>5% descuento en bodega</span><b>100 pts</b></div><div class="cj"><span>Útiles escolares</span><b>250 pts</b></div><div class="cj"><span>Vale S/ 20 librería</span><b>500 pts</b></div></div>`}
+function draw(i){const el=document.getElementById("p"+i),sc=S.scr[i],top=el.scrollTop;
+ el.innerHTML=`<div class="app-t">ReciclaRuta</div><div class="app-s">Prototipo · ODS 12</div>
+ <div class="tabs">${TABS.map((t,j)=>`<button class="${j===sc?"on":""}" data-tab="${j}">${t}</button>`).join("")}</div>`+[viewA,viewB,viewC][sc]();
+ el.scrollTop=top;
+ el.querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>{S.scr[i]=+b.dataset.tab;draw(i);el.scrollTop=0});
+ el.querySelectorAll("[data-bin]").forEach(b=>b.onclick=()=>answer(b.dataset.bin));
+ const z=el.querySelector("[data-zona]");if(z)z.onchange=()=>{S.zona=z.value;drawAll()};
+ el.querySelectorAll("[data-kg]").forEach(inp=>inp.onchange=()=>{KG[inp.dataset.kg]=Math.max(0,+inp.value||0);drawAll()})}
+function drawAll(){[0,1,2].forEach(draw)}
+function answer(k){if(S.lock)return;S.lock=true;const it=ITEMS[S.cur];
+ if(k===it[2]){S.acc++;S.racha++;S.quiz+=5;S.fb="¡Correcto! +5 pts";S.fbOk=true;S.gain="+5 pts"}
+ else{S.racha=0;S.fb="Va en: "+it[2];S.fbOk=false;S.gain=""}
+ drawAll();
+ setTimeout(()=>{S.cur=(S.cur+1)%ITEMS.length;S.fb="";S.gain="";S.lock=false;drawAll()},1100)}
+drawAll();
+</script></body></html>
